@@ -19,7 +19,7 @@
 
 	<properties>
 		<java.version>22</java.version>
-		<telegram.version>6.9.7.1</telegram.version>
+		<telegram.version>5.6.0</telegram.version>
 	</properties>
 
 	<dependencies>
@@ -40,6 +40,8 @@
 			<artifactId>telegrambots</artifactId>
 			<version>${telegram.version}</version>
 		</dependency>
+
+
 
 	</dependencies>
 

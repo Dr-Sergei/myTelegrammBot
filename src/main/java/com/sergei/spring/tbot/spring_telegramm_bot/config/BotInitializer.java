@@ -27,7 +27,7 @@ public class BotInitializer {
             telegramBotsApi.registerBot(telegramBot);
 
         } catch (TelegramApiException e) {
-            log.error("Error occurred:  {}", e.getMessage());
+            log.error("\nError occurred:  {}", e.getMessage() +"\n");
         }
     }
 

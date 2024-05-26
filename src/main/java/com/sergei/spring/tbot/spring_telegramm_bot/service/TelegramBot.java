@@ -7,7 +7,11 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Slf4j
@@ -18,6 +22,11 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     public TelegramBot(BotConfig botConfig) {
         this.botConfig = botConfig;
+
+        //menu
+        List<BotCommand> listOfCommands = new ArrayList<>();
+        listOfCommands.add(new BotCommand("/start","get a welcome message"));
+        listOfCommands.add(new BotCommand("/myData","shows a users data"));
     }
 
 
@@ -52,7 +61,8 @@ public class TelegramBot extends TelegramLongPollingBot {
     //taking the firs name and chat id, generating answer and sending it back
     private void startCommandReceived(long chatId, String firstName) {
         String answer = "Hi, " + firstName + ", nice to meet you!";
-        log.info("Replied to user {}.", firstName);
+
+        log.info("\n Replied to user {}", firstName +"\n");
         sendMessage(chatId, answer);
     }
 
